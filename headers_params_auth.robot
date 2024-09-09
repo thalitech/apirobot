@@ -22,7 +22,7 @@ Exemplo: Usando parâmetros
 Exemplo: Usando headers
     # Conectar com autenticação básica na API do GitHub
     Conectar com autenticação por token na API do GitHub
-    Enviar a reação "+1" para a issue "8"
+    Enviar a reação "heart" para a issue "1"
 
 *** Keywords ***
 # Conectar com autenticação básica na API do GitHub
