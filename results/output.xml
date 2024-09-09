@@ -1,107 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-09-09T10:38:36.551111" rpa="false" schemaversion="5">
-<suite id="s1" name="Post With Template" source="C:\Users\thali\Documents\github\APIrobot\post_with_template.robot">
-<test id="s1-t1" name="Exemplo: Postando com body template" line="14">
+<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-09-09T11:34:23.088426" rpa="false" schemaversion="5">
+<suite id="s1" name="Headers Params Auth" source="C:\Users\thali\Documents\github\APIrobot\headers_params_auth.robot">
+<test id="s1-t1" name="Exemplo: Fazendo autenticação básica (Basic Authentication)" line="13">
 <kw name="Conectar com autenticação por token na API do GitHub">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-09-09T10:38:37.839584" level="INFO">${HEADERS} = {'Authorization': 'Bearer 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'}</msg>
+<msg time="2024-09-09T11:34:24.066247" level="INFO">${HEADERS} = {'Authorization': 'Bearer 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'}</msg>
 <var>${HEADERS}</var>
 <arg>Authorization=Bearer ${MY_GITHUB_TOKEN}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-09-09T10:38:37.838554" elapsed="0.001030"/>
+<status status="PASS" start="2024-09-09T11:34:24.065814" elapsed="0.000433"/>
 </kw>
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2024-09-09T10:38:37.840549" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Authorization': 'Bearer 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'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2024-09-09T11:34:24.067466" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Authorization': 'Bearer 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'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=mygithubAuth</arg>
 <arg>url=${GITHUB_HOST}</arg>
 <arg>headers=${HEADERS}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2024-09-09T10:38:37.839584" elapsed="0.001961"/>
+<status status="PASS" start="2024-09-09T11:34:24.066810" elapsed="0.000997"/>
 </kw>
-<status status="PASS" start="2024-09-09T10:38:37.836559" elapsed="0.004986"/>
+<status status="PASS" start="2024-09-09T11:34:24.063818" elapsed="0.003989"/>
 </kw>
-<kw name="Postar uma nova issue com label &quot;robot framework&quot;" source_name="Postar uma nova issue com label &quot;${LABEL}&quot;">
-<kw name="Format String" owner="String">
-<msg time="2024-09-09T10:38:37.844538" level="INFO" html="true">Reading template from file &lt;a href="C:\Users\thali\Documents\github\APIrobot\data\input\post_issue.json"&gt;C:\Users\thali\Documents\github\APIrobot\data\input\post_issue.json&lt;/a&gt;.</msg>
-<msg time="2024-09-09T10:38:37.845536" level="INFO">${BODY} = {
-    "title": "Teste de criar Issue via API do GitHub by [thalitech]",
-    "body": "thalitech criou essa Issue via API do GitHub nos testes com Robot Framework!",
-    "assignees": [
-        "thalitec...</msg>
-<var>${BODY}</var>
-<arg>C:\\Users\\thali\\Documents\\github\\APIrobot/data/input/post_issue.json</arg>
-<arg>user_git=${MY_GITHUB_USER}</arg>
-<arg>label=${LABEL}</arg>
-<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
-<status status="PASS" start="2024-09-09T10:38:37.844538" elapsed="0.000998"/>
+<kw name="Solicitar os dados do meu usuário">
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-09-09T11:34:24.068805" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-09T11:34:24.443677" level="INFO">GET Request : url=https://api.github.com/user 
+ path_url=/user 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer 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'} 
+ body=None 
+ </msg>
+<msg time="2024-09-09T11:34:24.443677" level="INFO">GET Response : url=https://api.github.com/user 
+ status=401, reason=Unauthorized 
+ headers={'Date': 'Mon, 09 Sep 2024 14:34:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '95', 'X-GitHub-Media-Type': 'github.v3; format=json', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '55', 'X-RateLimit-Reset': '1725895867', 'X-RateLimit-Used': '5', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Vary': 'Accept-Encoding, Accept, X-Requested-With', 'Server': 'github.com', 'X-GitHub-Request-Id': 'C14C:1C27A0:2BFEA60:2DEAA00:66DF0771'} 
+ body={"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"} 
+ </msg>
+<msg time="2024-09-09T11:34:24.443677" level="INFO">${MY_USER_DATA} = &lt;Response [401]&gt;</msg>
+<var>${MY_USER_DATA}</var>
+<arg>alias=mygithubAuth</arg>
+<arg>uri=/user</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-09-09T11:34:24.068805" elapsed="0.374872"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-09-09T10:38:37.846715" level="INFO">Meu Body ficou:
-{
-    "title": "Teste de criar Issue via API do GitHub by [thalitech]",
-    "body": "thalitech criou essa Issue via API do GitHub nos testes com Robot Framework!",
-    "assignees": [
-        "thalitech"
-    ],
-    "labels": [
-        "robot framework"
-    ]
-}
-</msg>
-<arg>Meu Body ficou:\n${BODY}</arg>
+<msg time="2024-09-09T11:34:24.444674" level="INFO">Meus dados: {'message': 'Bad credentials', 'documentation_url': 'https://docs.github.com/rest', 'status': '401'}</msg>
+<arg>Meus dados: ${MY_USER_DATA.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-09-09T10:38:37.846533" elapsed="0.000182"/>
+<status status="PASS" start="2024-09-09T11:34:24.443677" elapsed="0.000997"/>
 </kw>
-<kw name="Post Request" owner="RequestsLibrary">
-<msg time="2024-09-09T10:38:37.847529" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2024-09-09T10:38:39.131098" level="INFO">POST Request : url=https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues 
- path_url=/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer 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', 'Content-Length': '260'} 
- body=b'{\n    "title": "Teste de criar Issue via API do GitHub by [thalitech]",\n    "body": "thalitech criou essa Issue via API do GitHub nos testes com Robot Framework!",\n    "assignees": [\n        "thalitech"\n    ],\n    "labels": [\n        "robot framework"\n    ]\n}\n' 
+<kw name="Confere sucesso na requisição">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2024-09-09T11:34:24.446668" level="FAIL">Erro na requisição! Verifique: &lt;Response [401]&gt;</msg>
+<arg>'${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'</arg>
+<arg>msg=Erro na requisição! Verifique: ${RESPONSE}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2024-09-09T11:34:24.445671" elapsed="0.000997">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+</kw>
+<arg>${MY_USER_DATA}</arg>
+<status status="FAIL" start="2024-09-09T11:34:24.444674" elapsed="0.001994">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+</kw>
+<status status="FAIL" start="2024-09-09T11:34:24.068805" elapsed="0.377863">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+</kw>
+<status status="FAIL" start="2024-09-09T11:34:24.063818" elapsed="0.383851">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+</test>
+<test id="s1-t2" name="Exemplo: Usando parâmetros" line="18">
+<kw name="Conectar na API do GitHub sem autenticação">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-09-09T11:34:24.450696" level="INFO">Creating Session using : alias=mygithub, url=https://api.github.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=mygithub</arg>
+<arg>url=${GITHUB_HOST}</arg>
+<arg>disable_warnings=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-09-09T11:34:24.450696" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-09-09T11:34:24.449662" elapsed="0.001034"/>
+</kw>
+<kw name="Pesquisar issues com o state &quot;open&quot; e com o label &quot;bug&quot;" source_name="Pesquisar issues com o state &quot;${STATE}&quot; e com o label &quot;${LABEL}&quot;">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-09-09T11:34:24.452653" level="INFO">&amp;{PARAMS} = { state=open | labels=bug }</msg>
+<var>&amp;{PARAMS}</var>
+<arg>state=${STATE}</arg>
+<arg>labels=${LABEL}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-09-09T11:34:24.451741" elapsed="0.000912"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-09-09T11:34:24.452653" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-09T11:34:24.828890" level="INFO">GET Request : url=https://api.github.com/repos/thalitech/robotproject/issues?state=open&amp;labels=bug 
+ path_url=/repos/thalitech/robotproject/issues?state=open&amp;labels=bug 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
  </msg>
-<msg time="2024-09-09T10:38:39.131098" level="INFO">POST Response : url=https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues 
- status=201, reason=Created 
- headers={'Date': 'Mon, 09 Sep 2024 13:38:39 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2399', 'Cache-Control': 'private, max-age=60, s-maxage=60', 'Vary': 'Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With', 'ETag': '"a58062d6e6fbcf51d85a959d8828993fcb13c4a6d8ee729bdbb192bc71e0c23e"', 'X-OAuth-Scopes': 'audit_log, codespace, copilot, gist, notifications, project, repo, user, workflow, write:discussion, write:packages', 'X-Accepted-OAuth-Scopes': '', 'Location': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/238', 'X-GitHub-Media-Type': 'github.v3; format=json', 'x-github-api-version-selected': '2022-11-28', 'X-RateLimit-Limit': '5000', 'X-RateLimit-Remaining': '4996', 'X-RateLimit-Reset': '1725892435', 'X-RateLimit-Used': '4', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Server': 'github.com', 'X-GitHub-Request-Id': 'FFC9:122EFC:7C89E5:82A4B0:66DEFA5E'} 
- body={"url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/238","repository_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse","labels_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/238/labels{/name}","comments_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/238/comments","events_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/238/events","html_url":"https://github.com/mayribeirofernandes/myudemyrobotframeworkcourse/issues/238","id":2514004097,"node_id":"I_kwDODPWc7s6V2KiB","number":238,"title":"Teste de criar Issue via API do GitHub by [thalitech]","user":{"login":"thalitech","id":175446870,"node_id":"U_kgDOCnUbVg","avatar_url":"https://avatars.githubusercontent.com/u/175446870?v=4","gravatar_id":"","url":"https://api.github.com/users/thalitech","html_url":"https://github.com/thalitech","followers_url":"https://api.github.com/users/thalitech/followers","following_url":"https://api.github.com/users/thalitech/following{/other_user}","gists_url":"https://api.github.com/users/thalitech/gists{/gist_id}","starred_url":"https://api.github.com/users/thalitech/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/thalitech/subscriptions","organizations_url":"https://api.github.com/users/thalitech/orgs","repos_url":"https://api.github.com/users/thalitech/repos","events_url":"https://api.github.com/users/thalitech/events{/privacy}","received_events_url":"https://api.github.com/users/thalitech/received_events","type":"User","site_admin":false},"labels":[],"state":"open","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2024-09-09T13:38:39Z","updated_at":"2024-09-09T13:38:39Z","closed_at":null,"author_association":"NONE","active_lock_reason":null,"body":"thalitech criou essa Issue via API do GitHub nos testes com Robot Framework!","closed_by":null,"reactions":{"url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/238/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/238/timeline","performed_via_github_app":null,"state_reason":null} 
+<msg time="2024-09-09T11:34:24.828890" level="INFO">GET Response : url=https://api.github.com/repos/thalitech/robotproject/issues?state=open&amp;labels=bug 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 09 Sep 2024 14:34:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Cache-Control': 'public, max-age=60, s-maxage=60', 'Vary': 'Accept,Accept-Encoding, Accept, X-Requested-With', 'ETag': '"992aaf92b487506974e4305db4a64326866f3ed48b2ba424cef8fbe4e28f72b0"', 'X-GitHub-Media-Type': 'github.v3; format=json', 'x-github-api-version-selected': '2022-11-28', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Server': 'github.com', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '59', 'X-RateLimit-Reset': '1725896065', 'X-RateLimit-Resource': 'core', 'X-RateLimit-Used': '1', 'Accept-Ranges': 'bytes', 'X-GitHub-Request-Id': 'C14D:156CAD:36FB30:3A8F1D:66DF0771'} 
+ body=[] 
  </msg>
-<msg time="2024-09-09T10:38:39.131704" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
-<var>${RESPONSE}</var>
-<arg>alias=mygithubAuth</arg>
+<msg time="2024-09-09T11:34:24.829888" level="INFO">${MY_ISSUES} = &lt;Response [200]&gt;</msg>
+<var>${MY_ISSUES}</var>
+<arg>alias=mygithub</arg>
 <arg>uri=${ISSUES_URI}</arg>
-<arg>data=${BODY}</arg>
-<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<status status="PASS" start="2024-09-09T10:38:37.846715" elapsed="1.284989"/>
+<arg>params=${PARAMS}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-09-09T11:34:24.452653" elapsed="0.377235"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-09T11:34:24.831882" level="INFO">Lista de Issues: []</msg>
+<arg>Lista de Issues: ${MY_ISSUES.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-09T11:34:24.829888" elapsed="0.001994"/>
 </kw>
 <kw name="Confere sucesso na requisição">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>'${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'</arg>
 <arg>msg=Erro na requisição! Verifique: ${RESPONSE}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2024-09-09T10:38:39.132095" elapsed="0.002993"/>
+<status status="PASS" start="2024-09-09T11:34:24.832880" elapsed="0.003989"/>
 </kw>
-<arg>${RESPONSE}</arg>
-<status status="PASS" start="2024-09-09T10:38:39.132095" elapsed="0.002993"/>
+<arg>${MY_ISSUES}</arg>
+<status status="PASS" start="2024-09-09T11:34:24.832880" elapsed="0.004986"/>
 </kw>
-<status status="PASS" start="2024-09-09T10:38:37.843012" elapsed="1.292076"/>
+<status status="PASS" start="2024-09-09T11:34:24.451741" elapsed="0.386125"/>
 </kw>
-<status status="PASS" start="2024-09-09T10:38:37.835562" elapsed="1.300524"/>
+<status status="PASS" start="2024-09-09T11:34:24.448941" elapsed="0.390823"/>
+</test>
+<test id="s1-t3" name="Exemplo: Usando headers" line="22">
+<kw name="Conectar com autenticação por token na API do GitHub">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-09-09T11:34:24.847740" level="INFO">${HEADERS} = {'Authorization': 'Bearer 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'}</msg>
+<var>${HEADERS}</var>
+<arg>Authorization=Bearer ${MY_GITHUB_TOKEN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-09-09T11:34:24.846741" elapsed="0.000999"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-09-09T11:34:24.850734" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Authorization': 'Bearer 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'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=mygithubAuth</arg>
+<arg>url=${GITHUB_HOST}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>disable_warnings=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-09-09T11:34:24.848736" elapsed="0.003040"/>
+</kw>
+<status status="PASS" start="2024-09-09T11:34:24.845783" elapsed="0.005993"/>
+</kw>
+<kw name="Enviar a reação &quot;+1&quot; para a issue &quot;8&quot;" source_name="Enviar a reação &quot;${REACTION}&quot; para a issue &quot;${ISSUE_NUMBER}&quot;">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-09-09T11:34:24.855717" level="INFO">${HEADERS} = {'Accept': 'application/vnd.github.squirrel-girl-preview+json'}</msg>
+<var>${HEADERS}</var>
+<arg>Accept=application/vnd.github.squirrel-girl-preview+json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-09-09T11:34:24.854721" elapsed="0.000996"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-09-09T11:34:24.856715" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-09-09T11:34:25.218985" level="INFO">POST Request : url=https://api.github.com/repos/thalitech/robotproject/issues/8/reactions 
+ path_url=/repos/thalitech/robotproject/issues/8/reactions 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/vnd.github.squirrel-girl-preview+json', 'Connection': 'keep-alive', 'Authorization': 'Bearer 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', 'Content-Length': '17'} 
+ body=b'{"content": "+1"}' 
+ </msg>
+<msg time="2024-09-09T11:34:25.218985" level="INFO">POST Response : url=https://api.github.com/repos/thalitech/robotproject/issues/8/reactions 
+ status=401, reason=Unauthorized 
+ headers={'Date': 'Mon, 09 Sep 2024 14:34:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '95', 'X-GitHub-Media-Type': 'github.v3; param=squirrel-girl-preview; format=json', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '54', 'X-RateLimit-Reset': '1725895867', 'X-RateLimit-Used': '6', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Vary': 'Accept-Encoding, Accept, X-Requested-With', 'Server': 'github.com', 'X-GitHub-Request-Id': 'C14E:1CB9FF:2B98CE8:2D84C3A:66DF0771'} 
+ body={"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"} 
+ </msg>
+<msg time="2024-09-09T11:34:25.218985" level="INFO">${MY_REACTION} = &lt;Response [401]&gt;</msg>
+<var>${MY_REACTION}</var>
+<arg>alias=mygithubAuth</arg>
+<arg>uri=${ISSUES_URI}/${ISSUE_NUMBER}/reactions</arg>
+<arg>data={"content": "${REACTION}"}</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2024-09-09T11:34:24.855717" elapsed="0.364160"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-09T11:34:25.221869" level="INFO">Meus dados: {'message': 'Bad credentials', 'documentation_url': 'https://docs.github.com/rest', 'status': '401'}</msg>
+<arg>Meus dados: ${MY_REACTION.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-09T11:34:25.219877" elapsed="0.001992"/>
+</kw>
+<kw name="Confere sucesso na requisição">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2024-09-09T11:34:25.228852" level="FAIL">Erro na requisição! Verifique: &lt;Response [401]&gt;</msg>
+<arg>'${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'</arg>
+<arg>msg=Erro na requisição! Verifique: ${RESPONSE}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2024-09-09T11:34:25.223865" elapsed="0.004987">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+</kw>
+<arg>${MY_REACTION}</arg>
+<status status="FAIL" start="2024-09-09T11:34:25.222869" elapsed="0.006981">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+</kw>
+<status status="FAIL" start="2024-09-09T11:34:24.853724" elapsed="0.376126">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+</kw>
+<status status="FAIL" start="2024-09-09T11:34:24.843753" elapsed="0.388104">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
 </test>
 <doc>Exemplos da própria Library: https://github.com/bulkan/robotframework-requests/blob/master/tests/testcase.robot
 Doc da API do GitHub: https://developer.github.com/v3/</doc>
-<status status="PASS" start="2024-09-09T10:38:36.553988" elapsed="2.585090"/>
+<status status="FAIL" start="2024-09-09T11:34:23.092415" elapsed="2.145421"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Post With Template">Post With Template</stat>
+<stat pass="1" fail="2" skip="0" id="s1" name="Headers Params Auth">Headers Params Auth</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-09-09T10:38:37.847529" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-09-09T11:34:24.068805" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-09T11:34:24.452653" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-09T11:34:24.856715" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
 </errors>
 </robot>
