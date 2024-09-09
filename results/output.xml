@@ -1,201 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-09-09T11:34:23.088426" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-09-09T11:45:42.270765" rpa="false" schemaversion="5">
 <suite id="s1" name="Headers Params Auth" source="C:\Users\thali\Documents\github\APIrobot\headers_params_auth.robot">
 <test id="s1-t1" name="Exemplo: Fazendo autenticação básica (Basic Authentication)" line="13">
 <kw name="Conectar com autenticação por token na API do GitHub">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-09-09T11:34:24.066247" level="INFO">${HEADERS} = {'Authorization': 'Bearer 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'}</msg>
+<msg time="2024-09-09T11:45:43.060525" level="INFO">${HEADERS} = {'Authorization': 'Bearer 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'}</msg>
 <var>${HEADERS}</var>
 <arg>Authorization=Bearer ${MY_GITHUB_TOKEN}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-09-09T11:34:24.065814" elapsed="0.000433"/>
+<status status="PASS" start="2024-09-09T11:45:43.060525" elapsed="0.000000"/>
 </kw>
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2024-09-09T11:34:24.067466" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Authorization': 'Bearer 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'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2024-09-09T11:45:43.061518" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Authorization': 'Bearer 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'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=mygithubAuth</arg>
 <arg>url=${GITHUB_HOST}</arg>
 <arg>headers=${HEADERS}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2024-09-09T11:34:24.066810" elapsed="0.000997"/>
+<status status="PASS" start="2024-09-09T11:45:43.061518" elapsed="0.000500"/>
 </kw>
-<status status="PASS" start="2024-09-09T11:34:24.063818" elapsed="0.003989"/>
+<status status="PASS" start="2024-09-09T11:45:43.059577" elapsed="0.002441"/>
 </kw>
 <kw name="Solicitar os dados do meu usuário">
 <kw name="Get Request" owner="RequestsLibrary">
-<msg time="2024-09-09T11:34:24.068805" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg time="2024-09-09T11:34:24.443677" level="INFO">GET Request : url=https://api.github.com/user 
+<msg time="2024-09-09T11:45:43.062511" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-09T11:45:43.455827" level="INFO">GET Request : url=https://api.github.com/user 
  path_url=/user 
  headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer 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'} 
  body=None 
  </msg>
-<msg time="2024-09-09T11:34:24.443677" level="INFO">GET Response : url=https://api.github.com/user 
+<msg time="2024-09-09T11:45:43.456823" level="INFO">GET Response : url=https://api.github.com/user 
  status=401, reason=Unauthorized 
- headers={'Date': 'Mon, 09 Sep 2024 14:34:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '95', 'X-GitHub-Media-Type': 'github.v3; format=json', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '55', 'X-RateLimit-Reset': '1725895867', 'X-RateLimit-Used': '5', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Vary': 'Accept-Encoding, Accept, X-Requested-With', 'Server': 'github.com', 'X-GitHub-Request-Id': 'C14C:1C27A0:2BFEA60:2DEAA00:66DF0771'} 
+ headers={'Date': 'Mon, 09 Sep 2024 14:45:44 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '95', 'X-GitHub-Media-Type': 'github.v3; format=json', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '51', 'X-RateLimit-Reset': '1725895867', 'X-RateLimit-Used': '9', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Vary': 'Accept-Encoding, Accept, X-Requested-With', 'Server': 'github.com', 'X-GitHub-Request-Id': 'C1A7:156CAD:38D0AC:3C7452:66DF0A18'} 
  body={"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"} 
  </msg>
-<msg time="2024-09-09T11:34:24.443677" level="INFO">${MY_USER_DATA} = &lt;Response [401]&gt;</msg>
+<msg time="2024-09-09T11:45:43.456823" level="INFO">${MY_USER_DATA} = &lt;Response [401]&gt;</msg>
 <var>${MY_USER_DATA}</var>
 <arg>alias=mygithubAuth</arg>
 <arg>uri=/user</arg>
 <doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
-<status status="PASS" start="2024-09-09T11:34:24.068805" elapsed="0.374872"/>
+<status status="PASS" start="2024-09-09T11:45:43.062511" elapsed="0.394312"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-09-09T11:34:24.444674" level="INFO">Meus dados: {'message': 'Bad credentials', 'documentation_url': 'https://docs.github.com/rest', 'status': '401'}</msg>
+<msg time="2024-09-09T11:45:43.461811" level="INFO">Meus dados: {'message': 'Bad credentials', 'documentation_url': 'https://docs.github.com/rest', 'status': '401'}</msg>
 <arg>Meus dados: ${MY_USER_DATA.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-09-09T11:34:24.443677" elapsed="0.000997"/>
+<status status="PASS" start="2024-09-09T11:45:43.457828" elapsed="0.004980"/>
 </kw>
 <kw name="Confere sucesso na requisição">
 <kw name="Should Be True" owner="BuiltIn">
-<msg time="2024-09-09T11:34:24.446668" level="FAIL">Erro na requisição! Verifique: &lt;Response [401]&gt;</msg>
+<msg time="2024-09-09T11:45:43.472779" level="FAIL">Erro na requisição! Verifique: &lt;Response [401]&gt;</msg>
 <arg>'${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'</arg>
 <arg>msg=Erro na requisição! Verifique: ${RESPONSE}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="FAIL" start="2024-09-09T11:34:24.445671" elapsed="0.000997">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+<status status="FAIL" start="2024-09-09T11:45:43.464803" elapsed="0.007976">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
 </kw>
 <arg>${MY_USER_DATA}</arg>
-<status status="FAIL" start="2024-09-09T11:34:24.444674" elapsed="0.001994">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+<status status="FAIL" start="2024-09-09T11:45:43.463805" elapsed="0.009973">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
 </kw>
-<status status="FAIL" start="2024-09-09T11:34:24.068805" elapsed="0.377863">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+<status status="FAIL" start="2024-09-09T11:45:43.062511" elapsed="0.411267">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
 </kw>
-<status status="FAIL" start="2024-09-09T11:34:24.063818" elapsed="0.383851">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+<status status="FAIL" start="2024-09-09T11:45:43.058282" elapsed="0.416743">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
 </test>
 <test id="s1-t2" name="Exemplo: Usando parâmetros" line="18">
 <kw name="Conectar na API do GitHub sem autenticação">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2024-09-09T11:34:24.450696" level="INFO">Creating Session using : alias=mygithub, url=https://api.github.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2024-09-09T11:45:43.479760" level="INFO">Creating Session using : alias=mygithub, url=https://api.github.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=mygithub</arg>
 <arg>url=${GITHUB_HOST}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2024-09-09T11:34:24.450696" elapsed="0.000000"/>
+<status status="PASS" start="2024-09-09T11:45:43.479760" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-09-09T11:34:24.449662" elapsed="0.001034"/>
+<status status="PASS" start="2024-09-09T11:45:43.479157" elapsed="0.001600"/>
 </kw>
 <kw name="Pesquisar issues com o state &quot;open&quot; e com o label &quot;bug&quot;" source_name="Pesquisar issues com o state &quot;${STATE}&quot; e com o label &quot;${LABEL}&quot;">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-09-09T11:34:24.452653" level="INFO">&amp;{PARAMS} = { state=open | labels=bug }</msg>
+<msg time="2024-09-09T11:45:43.483750" level="INFO">&amp;{PARAMS} = { state=open | labels=bug }</msg>
 <var>&amp;{PARAMS}</var>
 <arg>state=${STATE}</arg>
 <arg>labels=${LABEL}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-09-09T11:34:24.451741" elapsed="0.000912"/>
+<status status="PASS" start="2024-09-09T11:45:43.482056" elapsed="0.001694"/>
 </kw>
 <kw name="Get Request" owner="RequestsLibrary">
-<msg time="2024-09-09T11:34:24.452653" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg time="2024-09-09T11:34:24.828890" level="INFO">GET Request : url=https://api.github.com/repos/thalitech/robotproject/issues?state=open&amp;labels=bug 
- path_url=/repos/thalitech/robotproject/issues?state=open&amp;labels=bug 
+<msg time="2024-09-09T11:45:43.483750" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-09T11:45:43.899939" level="INFO">GET Request : url=https://api.github.com/repos/thalitech/apirobot/issues?state=open&amp;labels=bug 
+ path_url=/repos/thalitech/apirobot/issues?state=open&amp;labels=bug 
  headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2024-09-09T11:34:24.828890" level="INFO">GET Response : url=https://api.github.com/repos/thalitech/robotproject/issues?state=open&amp;labels=bug 
+<msg time="2024-09-09T11:45:43.900937" level="INFO">GET Response : url=https://api.github.com/repos/thalitech/apirobot/issues?state=open&amp;labels=bug 
  status=200, reason=OK 
- headers={'Date': 'Mon, 09 Sep 2024 14:34:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Cache-Control': 'public, max-age=60, s-maxage=60', 'Vary': 'Accept,Accept-Encoding, Accept, X-Requested-With', 'ETag': '"992aaf92b487506974e4305db4a64326866f3ed48b2ba424cef8fbe4e28f72b0"', 'X-GitHub-Media-Type': 'github.v3; format=json', 'x-github-api-version-selected': '2022-11-28', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Server': 'github.com', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '59', 'X-RateLimit-Reset': '1725896065', 'X-RateLimit-Resource': 'core', 'X-RateLimit-Used': '1', 'Accept-Ranges': 'bytes', 'X-GitHub-Request-Id': 'C14D:156CAD:36FB30:3A8F1D:66DF0771'} 
- body=[] 
+ headers={'Date': 'Mon, 09 Sep 2024 14:45:44 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=60, s-maxage=60', 'Vary': 'Accept,Accept-Encoding, Accept, X-Requested-With', 'ETag': 'W/"8b9c4b54de2499dbc8b9408584d1f06ba4873ebffceba256a352ebbd6b015656"', 'X-GitHub-Media-Type': 'github.v3; format=json', 'x-github-api-version-selected': '2022-11-28', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Content-Encoding': 'gzip', 'Server': 'github.com', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '45', 'X-RateLimit-Reset': '1725896065', 'X-RateLimit-Resource': 'core', 'X-RateLimit-Used': '15', 'Accept-Ranges': 'bytes', 'Content-Length': '796', 'X-GitHub-Request-Id': 'C1A8:1CB9FF:2BB650A:2DA3427:66DF0A18'} 
+ body=[{"url":"https://api.github.com/repos/thalitech/apirobot/issues/1","repository_url":"https://api.github.com/repos/thalitech/apirobot","labels_url":"https://api.github.com/repos/thalitech/apirobot/issues/1/labels{/name}","comments_url":"https://api.github.com/repos/thalitech/apirobot/issues/1/comments","events_url":"https://api.github.com/repos/thalitech/apirobot/issues/1/events","html_url":"https://github.com/thalitech/apirobot/issues/1","id":2514172293,"node_id":"I_kwDOMvCF2c6V2zmF","number":1,"title":"Test Issue Robot API","user":{"login":"thalitech","id":175446870,"node_id":"U_kgDOCnUbVg","avatar_url":"https://avatars.githubusercontent.com/u/175446870?v=4","gravatar_id":"","url":"https://api.github.com/users/thalitech","html_url":"https://github.com/thalitech","followers_url":"https://api.github.com/users/thalitech/followers","following_url":"https://api.github.com/users/thalitech/following{/other_user}","gists_url":"https://api.github.com/users/thalitech/gists{/gist_id}","starred_url":"https://api.github.com/users/thalitech/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/thalitech/subscriptions","organizations_url":"https://api.github.com/users/thalitech/orgs","repos_url":"https://api.github.com/users/thalitech/repos","events_url":"https://api.github.com/users/thalitech/events{/privacy}","received_events_url":"https://api.github.com/users/thalitech/received_events","type":"User","site_admin":false},"labels":[{"id":7439672058,"node_id":"LA_kwDOMvCF2c8AAAABu3Bi-g","url":"https://api.github.com/repos/thalitech/apirobot/labels/bug","name":"bug","color":"d73a4a","default":true,"description":"Something isn't working"}],"state":"open","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2024-09-09T14:43:56Z","updated_at":"2024-09-09T14:44:46Z","closed_at":null,"author_association":"OWNER","active_lock_reason":null,"body":null,"closed_by":null,"reactions":{"url":"https://api.github.com/repos/thalitech/apirobot/issues/1/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/thalitech/apirobot/issues/1/timeline","performed_via_github_app":null,"state_reason":null}] 
  </msg>
-<msg time="2024-09-09T11:34:24.829888" level="INFO">${MY_ISSUES} = &lt;Response [200]&gt;</msg>
+<msg time="2024-09-09T11:45:43.901936" level="INFO">${MY_ISSUES} = &lt;Response [200]&gt;</msg>
 <var>${MY_ISSUES}</var>
 <arg>alias=mygithub</arg>
 <arg>uri=${ISSUES_URI}</arg>
 <arg>params=${PARAMS}</arg>
 <doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
-<status status="PASS" start="2024-09-09T11:34:24.452653" elapsed="0.377235"/>
+<status status="PASS" start="2024-09-09T11:45:43.483750" elapsed="0.418186"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-09-09T11:34:24.831882" level="INFO">Lista de Issues: []</msg>
+<msg time="2024-09-09T11:45:43.905925" level="INFO">Lista de Issues: [{'url': 'https://api.github.com/repos/thalitech/apirobot/issues/1', 'repository_url': 'https://api.github.com/repos/thalitech/apirobot', 'labels_url': 'https://api.github.com/repos/thalitech/apirobot/issues/1/labels{/name}', 'comments_url': 'https://api.github.com/repos/thalitech/apirobot/issues/1/comments', 'events_url': 'https://api.github.com/repos/thalitech/apirobot/issues/1/events', 'html_url': 'https://github.com/thalitech/apirobot/issues/1', 'id': 2514172293, 'node_id': 'I_kwDOMvCF2c6V2zmF', 'number': 1, 'title': 'Test Issue Robot API', 'user': {'login': 'thalitech', 'id': 175446870, 'node_id': 'U_kgDOCnUbVg', 'avatar_url': 'https://avatars.githubusercontent.com/u/175446870?v=4', 'gravatar_id': '', 'url': 'https://api.github.com/users/thalitech', 'html_url': 'https://github.com/thalitech', 'followers_url': 'https://api.github.com/users/thalitech/followers', 'following_url': 'https://api.github.com/users/thalitech/following{/other_user}', 'gists_url': 'https://api.github.com/users/thalitech/gists{/gist_id}', 'starred_url': 'https://api.github.com/users/thalitech/starred{/owner}{/repo}', 'subscriptions_url': 'https://api.github.com/users/thalitech/subscriptions', 'organizations_url': 'https://api.github.com/users/thalitech/orgs', 'repos_url': 'https://api.github.com/users/thalitech/repos', 'events_url': 'https://api.github.com/users/thalitech/events{/privacy}', 'received_events_url': 'https://api.github.com/users/thalitech/received_events', 'type': 'User', 'site_admin': False}, 'labels': [{'id': 7439672058, 'node_id': 'LA_kwDOMvCF2c8AAAABu3Bi-g', 'url': 'https://api.github.com/repos/thalitech/apirobot/labels/bug', 'name': 'bug', 'color': 'd73a4a', 'default': True, 'description': "Something isn't working"}], 'state': 'open', 'locked': False, 'assignee': None, 'assignees': [], 'milestone': None, 'comments': 0, 'created_at': '2024-09-09T14:43:56Z', 'updated_at': '2024-09-09T14:44:46Z', 'closed_at': None, 'author_association': 'OWNER', 'active_lock_reason': None, 'body': None, 'closed_by': None, 'reactions': {'url': 'https://api.github.com/repos/thalitech/apirobot/issues/1/reactions', 'total_count': 0, '+1': 0, '-1': 0, 'laugh': 0, 'hooray': 0, 'confused': 0, 'heart': 0, 'rocket': 0, 'eyes': 0}, 'timeline_url': 'https://api.github.com/repos/thalitech/apirobot/issues/1/timeline', 'performed_via_github_app': None, 'state_reason': None}]</msg>
 <arg>Lista de Issues: ${MY_ISSUES.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-09-09T11:34:24.829888" elapsed="0.001994"/>
+<status status="PASS" start="2024-09-09T11:45:43.903153" elapsed="0.002772"/>
 </kw>
 <kw name="Confere sucesso na requisição">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>'${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'</arg>
 <arg>msg=Erro na requisição! Verifique: ${RESPONSE}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2024-09-09T11:34:24.832880" elapsed="0.003989"/>
+<status status="PASS" start="2024-09-09T11:45:43.908922" elapsed="0.008973"/>
 </kw>
 <arg>${MY_ISSUES}</arg>
-<status status="PASS" start="2024-09-09T11:34:24.832880" elapsed="0.004986"/>
+<status status="PASS" start="2024-09-09T11:45:43.906963" elapsed="0.010932"/>
 </kw>
-<status status="PASS" start="2024-09-09T11:34:24.451741" elapsed="0.386125"/>
+<status status="PASS" start="2024-09-09T11:45:43.480970" elapsed="0.437922"/>
 </kw>
-<status status="PASS" start="2024-09-09T11:34:24.448941" elapsed="0.390823"/>
+<status status="PASS" start="2024-09-09T11:45:43.477767" elapsed="0.443118"/>
 </test>
 <test id="s1-t3" name="Exemplo: Usando headers" line="22">
 <kw name="Conectar com autenticação por token na API do GitHub">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-09-09T11:34:24.847740" level="INFO">${HEADERS} = {'Authorization': 'Bearer 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'}</msg>
+<msg time="2024-09-09T11:45:43.930860" level="INFO">${HEADERS} = {'Authorization': 'Bearer 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'}</msg>
 <var>${HEADERS}</var>
 <arg>Authorization=Bearer ${MY_GITHUB_TOKEN}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-09-09T11:34:24.846741" elapsed="0.000999"/>
+<status status="PASS" start="2024-09-09T11:45:43.928864" elapsed="0.001996"/>
 </kw>
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2024-09-09T11:34:24.850734" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Authorization': 'Bearer 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'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2024-09-09T11:45:43.939833" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Authorization': 'Bearer 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'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=mygithubAuth</arg>
 <arg>url=${GITHUB_HOST}</arg>
 <arg>headers=${HEADERS}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2024-09-09T11:34:24.848736" elapsed="0.003040"/>
+<status status="PASS" start="2024-09-09T11:45:43.937838" elapsed="0.001995"/>
 </kw>
-<status status="PASS" start="2024-09-09T11:34:24.845783" elapsed="0.005993"/>
+<status status="PASS" start="2024-09-09T11:45:43.926868" elapsed="0.013971"/>
 </kw>
 <kw name="Enviar a reação &quot;+1&quot; para a issue &quot;8&quot;" source_name="Enviar a reação &quot;${REACTION}&quot; para a issue &quot;${ISSUE_NUMBER}&quot;">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-09-09T11:34:24.855717" level="INFO">${HEADERS} = {'Accept': 'application/vnd.github.squirrel-girl-preview+json'}</msg>
+<msg time="2024-09-09T11:45:43.944821" level="INFO">${HEADERS} = {'Accept': 'application/vnd.github.squirrel-girl-preview+json'}</msg>
 <var>${HEADERS}</var>
 <arg>Accept=application/vnd.github.squirrel-girl-preview+json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-09-09T11:34:24.854721" elapsed="0.000996"/>
+<status status="PASS" start="2024-09-09T11:45:43.943825" elapsed="0.000996"/>
 </kw>
 <kw name="Post Request" owner="RequestsLibrary">
-<msg time="2024-09-09T11:34:24.856715" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2024-09-09T11:34:25.218985" level="INFO">POST Request : url=https://api.github.com/repos/thalitech/robotproject/issues/8/reactions 
- path_url=/repos/thalitech/robotproject/issues/8/reactions 
+<msg time="2024-09-09T11:45:43.945825" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-09-09T11:45:44.406516" level="INFO">POST Request : url=https://api.github.com/repos/thalitech/apirobot/issues/8/reactions 
+ path_url=/repos/thalitech/apirobot/issues/8/reactions 
  headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/vnd.github.squirrel-girl-preview+json', 'Connection': 'keep-alive', 'Authorization': 'Bearer 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', 'Content-Length': '17'} 
  body=b'{"content": "+1"}' 
  </msg>
-<msg time="2024-09-09T11:34:25.218985" level="INFO">POST Response : url=https://api.github.com/repos/thalitech/robotproject/issues/8/reactions 
+<msg time="2024-09-09T11:45:44.406516" level="INFO">POST Response : url=https://api.github.com/repos/thalitech/apirobot/issues/8/reactions 
  status=401, reason=Unauthorized 
- headers={'Date': 'Mon, 09 Sep 2024 14:34:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '95', 'X-GitHub-Media-Type': 'github.v3; param=squirrel-girl-preview; format=json', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '54', 'X-RateLimit-Reset': '1725895867', 'X-RateLimit-Used': '6', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Vary': 'Accept-Encoding, Accept, X-Requested-With', 'Server': 'github.com', 'X-GitHub-Request-Id': 'C14E:1CB9FF:2B98CE8:2D84C3A:66DF0771'} 
+ headers={'Date': 'Mon, 09 Sep 2024 14:45:45 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '95', 'X-GitHub-Media-Type': 'github.v3; param=squirrel-girl-preview; format=json', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '50', 'X-RateLimit-Reset': '1725895867', 'X-RateLimit-Used': '10', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Vary': 'Accept-Encoding, Accept, X-Requested-With', 'Server': 'github.com', 'X-GitHub-Request-Id': 'C1A9:6580C:17EB526:1914420:66DF0A18'} 
  body={"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"} 
  </msg>
-<msg time="2024-09-09T11:34:25.218985" level="INFO">${MY_REACTION} = &lt;Response [401]&gt;</msg>
+<msg time="2024-09-09T11:45:44.407407" level="INFO">${MY_REACTION} = &lt;Response [401]&gt;</msg>
 <var>${MY_REACTION}</var>
 <arg>alias=mygithubAuth</arg>
 <arg>uri=${ISSUES_URI}/${ISSUE_NUMBER}/reactions</arg>
 <arg>data={"content": "${REACTION}"}</arg>
 <arg>headers=${HEADERS}</arg>
 <doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<status status="PASS" start="2024-09-09T11:34:24.855717" elapsed="0.364160"/>
+<status status="PASS" start="2024-09-09T11:45:43.945825" elapsed="0.461582"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-09-09T11:34:25.221869" level="INFO">Meus dados: {'message': 'Bad credentials', 'documentation_url': 'https://docs.github.com/rest', 'status': '401'}</msg>
+<msg time="2024-09-09T11:45:44.410398" level="INFO">Meus dados: {'message': 'Bad credentials', 'documentation_url': 'https://docs.github.com/rest', 'status': '401'}</msg>
 <arg>Meus dados: ${MY_REACTION.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-09-09T11:34:25.219877" elapsed="0.001992"/>
+<status status="PASS" start="2024-09-09T11:45:44.408404" elapsed="0.001994"/>
 </kw>
 <kw name="Confere sucesso na requisição">
 <kw name="Should Be True" owner="BuiltIn">
-<msg time="2024-09-09T11:34:25.228852" level="FAIL">Erro na requisição! Verifique: &lt;Response [401]&gt;</msg>
+<msg time="2024-09-09T11:45:44.416382" level="FAIL">Erro na requisição! Verifique: &lt;Response [401]&gt;</msg>
 <arg>'${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'</arg>
 <arg>msg=Erro na requisição! Verifique: ${RESPONSE}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="FAIL" start="2024-09-09T11:34:25.223865" elapsed="0.004987">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+<status status="FAIL" start="2024-09-09T11:45:44.412393" elapsed="0.004987">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
 </kw>
 <arg>${MY_REACTION}</arg>
-<status status="FAIL" start="2024-09-09T11:34:25.222869" elapsed="0.006981">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+<status status="FAIL" start="2024-09-09T11:45:44.411396" elapsed="0.005984">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
 </kw>
-<status status="FAIL" start="2024-09-09T11:34:24.853724" elapsed="0.376126">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+<status status="FAIL" start="2024-09-09T11:45:43.941880" elapsed="0.475500">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
 </kw>
-<status status="FAIL" start="2024-09-09T11:34:24.843753" elapsed="0.388104">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
+<status status="FAIL" start="2024-09-09T11:45:43.924911" elapsed="0.494840">Erro na requisição! Verifique: &lt;Response [401]&gt;</status>
 </test>
 <doc>Exemplos da própria Library: https://github.com/bulkan/robotframework-requests/blob/master/tests/testcase.robot
 Doc da API do GitHub: https://developer.github.com/v3/</doc>
-<status status="FAIL" start="2024-09-09T11:34:23.092415" elapsed="2.145421"/>
+<status status="FAIL" start="2024-09-09T11:45:42.274704" elapsed="2.154718"/>
 </suite>
 <statistics>
 <total>
@@ -208,8 +208,8 @@ Doc da API do GitHub: https://developer.github.com/v3/</doc>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-09-09T11:34:24.068805" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg time="2024-09-09T11:34:24.452653" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg time="2024-09-09T11:34:24.856715" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-09-09T11:45:43.062511" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-09T11:45:43.483750" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-09T11:45:43.945825" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
 </errors>
 </robot>

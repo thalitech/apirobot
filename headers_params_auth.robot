@@ -7,7 +7,7 @@ Resource            ./variables/my_user_and_passwords.robot
 
 *** Variables ***
 ${GITHUB_HOST}      https://api.github.com
-${ISSUES_URI}       /repos/thalitech/robotproject/issues
+${ISSUES_URI}       /repos/thalitech/apirobot/issues
 
 *** Test Cases ***
 Exemplo: Fazendo autenticação básica (Basic Authentication)
